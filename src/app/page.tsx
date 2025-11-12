@@ -5,6 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { AIShowcase } from "@/components/shared/ai-showcase";
 import { AnalyticsPanel } from "@/components/shared/analytics-panel";
+import { ModulePreview } from "@/components/marketing/module-preview";
+import { PathwayShowcase } from "@/components/marketing/pathway-showcase";
+import { SubscriptionShowcase } from "@/components/marketing/subscription-showcase";
+import { SupportHighlights } from "@/components/marketing/support-highlights";
 
 type FeaturePillar = {
   title: string;
@@ -71,10 +75,18 @@ export default function HomePage() {
         ))}
       </section>
 
+      <ModulePreview />
+
       <section className="grid gap-6 lg:grid-cols-2">
         <AIShowcase />
         <AnalyticsPanel />
       </section>
+
+      <PathwayShowcase />
+
+      <SubscriptionShowcase />
+
+      <SupportHighlights />
     </main>
   );
 }
