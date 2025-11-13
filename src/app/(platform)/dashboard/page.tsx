@@ -1,5 +1,5 @@
-import { PlatformDashboard } from "@/components/dashboard/platform-dashboard";
+import { EnhancedDashboard } from "@/components/dashboard/enhanced-dashboard";
 
 export default function DashboardPage() {
-  return <PlatformDashboard />;
+  return <EnhancedDashboard />;
 }
