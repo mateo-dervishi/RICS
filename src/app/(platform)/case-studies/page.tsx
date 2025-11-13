@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Plus, FileText, Edit, Trash2 } from "lucide-react";
+import { Plus, Edit, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -191,7 +191,7 @@ export default function CaseStudiesPage() {
     if (!confirm("Are you sure you want to delete this case study?")) return;
 
     try {
-      const supabase = createBrowserSupabaseClient();
+      const { supabase } = await getSupabaseWithUserId();
       const { error } = await supabase.from("case_studies").delete().eq("id", id);
       if (error) throw error;
       toast.success("Case study deleted");
@@ -374,7 +374,7 @@ export default function CaseStudiesPage() {
                     Edit
                   </Button>
                   <Button size="sm" variant="outline" asChild>
-                    <Link href={`/case-studies/${caseStudy.id}`}>View</Link>
+                    <Link href={`/case-studies/${caseStudy.id}` as any}>View</Link>
                   </Button>
                   <Button size="sm" variant="outline" onClick={() => handleDelete(caseStudy.id)}>
                     <Trash2 className="h-4 w-4" />

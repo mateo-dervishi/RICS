@@ -11,7 +11,6 @@ import { CheckCircle2, Circle, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useUser } from "@/lib/user-context";
-import { getSupabaseWithUserId } from "@/lib/user-helpers";
 
 interface UserCompetency {
   id: string;
@@ -202,7 +201,7 @@ export default function CompetenciesPage() {
                         <Link href={`/experience?competency=${competency.id}`}>View Evidence</Link>
                       </Button>
                       <Button size="sm" asChild>
-                        <Link href={`/competencies/${competency.id}`}>Manage</Link>
+                        <Link href={`/competencies/${competency.id}` as any}>Manage</Link>
                       </Button>
                     </div>
                   </CardContent>

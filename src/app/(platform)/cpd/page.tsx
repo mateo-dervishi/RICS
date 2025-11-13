@@ -359,7 +359,7 @@ export default function CPDPage() {
                               {activity.competency_links.map((compId) => {
                                 const comp = mandatoryCompetencies.find((c) => c.id === compId);
                                 return comp ? (
-                                  <Badge key={compId} variant="secondary" className="text-xs">
+                                  <Badge key={compId} variant="outline" className="text-xs">
                                     {comp.name}
                                   </Badge>
                                 ) : null;

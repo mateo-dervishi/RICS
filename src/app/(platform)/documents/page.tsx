@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FileText, Download, Upload, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import { FileText, Download, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 
@@ -126,7 +126,7 @@ export default function DocumentsPage() {
                       <>
                         {getStatusBadge(doc.approval_status)}
                         <Button size="sm" variant="outline" asChild>
-                          <Link href={`/documents/${doc.id}`}>View</Link>
+                          <Link href={`/documents/${doc.id}` as any}>View</Link>
                         </Button>
                       </>
                     ) : (
@@ -195,7 +195,7 @@ function DocumentList({ documents }: { documents: Document[] }) {
             </div>
             <div className="flex gap-2">
               <Button size="sm" variant="outline" asChild>
-                <Link href={`/documents/${doc.id}`}>View</Link>
+                <Link href={`/documents/${doc.id}` as any}>View</Link>
               </Button>
               <Button size="sm" variant="outline">
                 <Download className="mr-2 h-4 w-4" />

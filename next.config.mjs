@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    typedRoutes: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -11,7 +14,7 @@ const nextConfig = {
         hostname: "cdn.rics.org"
       }
     ]
-  }
+  },
 };
 
 export default nextConfig;

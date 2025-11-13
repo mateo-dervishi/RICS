@@ -17,7 +17,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { getAISuggestions } from "@/lib/ai";
-import { useState } from "react";
 
 const summarySchema = z.object({
   competency_id: z.string().min(1, "Competency is required"),
@@ -102,7 +101,6 @@ export default function SummaryOfExperiencePage() {
 
       const wordCount = calculateWordCount(data.content);
       const competency = mandatoryCompetencies.find((c) => c.id === data.competency_id);
-      const targetWords = getTargetWordCount(data.level);
 
       if (editingSummary) {
         const { error } = await supabase
@@ -321,7 +319,7 @@ export default function SummaryOfExperiencePage() {
                   </div>
                 )}
                 <p className="text-xs text-muted-foreground">
-                  Tip: Include specific examples, outcomes, and demonstrate how you've met the competency requirements.
+                  Tip: Include specific examples, outcomes, and demonstrate how you&apos;ve met the competency requirements.
                 </p>
               </div>
 

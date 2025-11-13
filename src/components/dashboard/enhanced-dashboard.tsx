@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Target, CheckCircle2, AlertCircle, Clock } from "lucide-react";
+import { Calendar, Target, CheckCircle2, Clock } from "lucide-react";
 import { mandatoryCompetencies } from "@/data/competencies";
 import Link from "next/link";
-import { format, differenceInDays, isBefore } from "date-fns";
+import { format, differenceInDays } from "date-fns";
 
 interface DashboardStats {
   competenciesComplete: number;
@@ -133,7 +133,7 @@ export function EnhancedDashboard() {
   const getReadinessBadge = (score: number) => {
     if (score >= 80) return { label: "Ready", variant: "default" as const, className: "bg-green-600" };
     if (score >= 60) return { label: "On Track", variant: "default" as const, className: "bg-yellow-600" };
-    return { label: "Needs Work", variant: "destructive" as const };
+    return { label: "Needs Work", variant: "warning" as const };
   };
 
   if (loading) {

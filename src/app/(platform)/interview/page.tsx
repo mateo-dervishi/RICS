@@ -4,15 +4,13 @@ import { useEffect, useState } from "react";
 import { getSupabaseWithUserId } from "@/lib/user-helpers";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { mandatoryCompetencies } from "@/data/competencies";
-import { Plus, Play, Star, MessageSquare, Clock } from "lucide-react";
+import { Plus, Play, Star, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -74,7 +72,6 @@ export default function InterviewPage() {
     register,
     handleSubmit,
     setValue,
-    watch,
     reset,
     formState: { errors }
   } = useForm<InterviewForm>({

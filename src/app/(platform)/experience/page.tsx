@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { getSupabaseWithUserId } from "@/lib/user-helpers";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,7 +41,7 @@ interface ExperienceEntry {
   created_at: string;
 }
 
-export default function ExperiencePage() {
+function ExperiencePageContent() {
   const searchParams = useSearchParams();
   const [entries, setEntries] = useState<ExperienceEntry[]>([]);
   const [projects, setProjects] = useState<any[]>([]);
@@ -338,7 +338,7 @@ export default function ExperiencePage() {
                           <Badge>Level {entry.level}</Badge>
                         </div>
                         {entry.project_title && (
-                          <Badge variant="secondary">Project: {entry.project_title}</Badge>
+                          <Badge variant="outline">Project: {entry.project_title}</Badge>
                         )}
                         <p className="text-sm">{entry.description}</p>
                         <div className="flex flex-wrap gap-1">
@@ -361,6 +361,14 @@ export default function ExperiencePage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function ExperiencePage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center p-8">Loading...</div>}>
+      <ExperiencePageContent />
+    </Suspense>
   );
 }
 
